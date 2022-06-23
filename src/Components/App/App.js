@@ -15,8 +15,9 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [openModal, setOpenModal] = useState(false)
-  const [movieId , setMovieId] = useState(0)
+  const [openModal, setOpenModal] = useState(false);
+  const [movieId, setMovieId] = useState(0);
+  const [filter, setFilter] = useState({ min: 0, max: 10 });
   const headerMovie = useRef({});
   useEffect(() => {
     discoverMovies()
@@ -40,24 +41,33 @@ function App() {
 
       {movies.length > 0 && (
         <>
-          <Header movies={headerMovie}  setOpenModal = {setOpenModal} setMovieId = {setMovieId}/>
-          <Filters setMovies={setMovies} />
+          <Header
+            movies={headerMovie}
+            setOpenModal={setOpenModal}
+            setMovieId={setMovieId}
+          />
+          <Filters setMovies={setMovies} setFilter={setFilter} />
           <CardList>
-            {movies.map((movie) => (
-              <Card
-                key={movie.id}
-                id = {movie.id}
-                title={movie.original_title}
-                image={movie.poster_path}
-                setOpenModal = {setOpenModal}
-                setMovieId = {setMovieId}
-              />
-            ))}
+            {movies
+              .filter(
+                (movies) =>
+                  movies.vote_average >= filter.min &&
+                  movies.vote_average <= filter.max
+              )
+              .map((movie) => (
+                <Card
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.original_title}
+                  image={movie.poster_path}
+                  setOpenModal={setOpenModal}
+                  setMovieId={setMovieId}
+                />
+              ))}
           </CardList>
           {openModal && (
             <Modal>
-             
-              <MovieDetail setOpenModal = {setOpenModal} movieId = {movieId}/>
+              <MovieDetail setOpenModal={setOpenModal} movieId={movieId} />
             </Modal>
           )}
         </>
