@@ -1,0 +1,57 @@
+.container_header{
+    background-color: #FFFFFF;
+}
+h1{
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #FFFFFF;
+}
+
+.navbar{
+    background:  rgb(12, 11, 11);
+    padding: 10px;
+    border-bottom: 2px solid #FFFFFF;
+}
+.header {
+    margin-top: 1.5rem;
+    background-color: #FFFFFF;
+    display:  flex;
+    gap: 40px;
+    align-items: center;
+}
+.image_header{
+   
+    display: block;
+
+}
+.text {
+    
+    
+    width: 50%;
+    padding: 100px;
+    padding-left: 0;
+    color: #000000;
+}
+.text >h3 {
+    font-size: 64px;
+}
+.text >p {
+    margin-top: 20px;
+    font-size: 24px;
+}
+.btn_header{
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px;
+    width: 7rem;
+    background-color: #ff0000;
+    color: #FFFFFF;
+    font-weight: 700;
+    border: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease-out;
+}
+.btn_header:hover{
+    background-color: #000000;
+    color: #FFFFFF;
+}
