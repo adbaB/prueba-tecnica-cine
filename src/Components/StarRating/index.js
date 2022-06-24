@@ -1,11 +1,11 @@
-import React, {  useEffect, useState } from "react";
-import { FaStar } from "react-icons/fa";
-
-import "./index.css";
-export const StarRating = ({setFilter}) => {
-
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
+import React, { useContext, useEffect, useState } from 'react'
+import { FaStar } from 'react-icons/fa'
+import { FilterContext } from '../../Context/CineContext'
+import './index.css'
+export const StarRating = () => {
+  const { setFilter } = useContext(FilterContext)
+  const [rating, setRating] = useState(null)
+  const [hover, setHover] = useState(null)
 
   const starArray = [
     { id: 0, max: 2 },
@@ -13,29 +13,29 @@ export const StarRating = ({setFilter}) => {
     { id: 2, max: 6 },
     { id: 3, max: 8 },
     { id: 4, max: 10 },
-  ];
-  const handlerClick = (ratingValue,max ) => {
-    
+  ]
+  const handlerClick = (ratingValue, max) => {
     setRating((prev) => {
-      if (prev === ratingValue){
-   
-      } ;
-      return prev === ratingValue ? null : ratingValue;
-    });
-
-    setFilter({min: max-2, max:max })
-  };
-  useEffect(()=>{
-    if(rating === null ){
+      return prev === ratingValue ? null : ratingValue
+    })
+  }
+  useEffect(() => {
+    if (rating === null) {
       setHover(null)
-      setFilter({min:0, max:10 })
+      setFilter({ min: 0, max: 10 })
+    } else {
+      setFilter({
+        min: starArray[rating - 1].max - 2,
+        max: starArray[rating - 1].max,
+      })
     }
-  },[rating,setFilter])
-  
+    // eslint-disable-next-line
+  }, [rating, setFilter])
+
   return (
     <div>
       {starArray.map((star, i) => {
-        const ratingValue = i + 1;
+        const ratingValue = i + 1
         return (
           <label key={star.id}>
             <input
@@ -43,23 +43,23 @@ export const StarRating = ({setFilter}) => {
               name="rating"
               value={ratingValue}
               onClick={() => {
-                handlerClick(ratingValue,star.max);
+                handlerClick(ratingValue, star.max)
               }}
             />
             <FaStar
               className="star"
-              color={ratingValue <= (hover || rating) ? "#FFC107" : "#E4E5E9"}
+              color={ratingValue <= (hover || rating) ? '#FFC107' : '#E4E5E9'}
               size={25}
               onMouseEnter={() => {
-                setHover(ratingValue);
+                setHover(ratingValue)
               }}
               onMouseLeave={() => {
-                setHover(null);
+                setHover(null)
               }}
             />
           </label>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}

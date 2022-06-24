@@ -2,7 +2,7 @@ import { getApi } from "../Config/getApi";
 
 export const discoverMovies =  () => {
   const apiUrl = getApi("discover/movie");
-  console.log(apiUrl)
+
   return fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => data)
@@ -15,7 +15,6 @@ export const findMovies = async(query) =>{
     
     let apiUrl = getApi('search/movie')
     apiUrl = apiUrl + `&query=${query}`
-    console.log(apiUrl,query)
     return fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => data)

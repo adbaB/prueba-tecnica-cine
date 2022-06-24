@@ -13,14 +13,15 @@ import { MovieDetail } from "../MovieDetail";
 import "./App.css";
 
 function App() {
-  const {valueInput} = useContext(FilterContext)
+  const { valueInput, filter } = useContext(FilterContext);
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [movieId, setMovieId] = useState(0);
-  const [filter, setFilter] = useState({ min: 0, max: 10 });
+
   const headerMovie = useRef({});
+
   useEffect(() => {
     discoverMovies()
       .then((data) => {
@@ -41,7 +42,7 @@ function App() {
       {loading && <Loading />}
       {error && <div>Error</div>}
 
-      {((movies.length > 0 && !loading ) || (!!valueInput))&& (
+      {((movies.length > 0 && !loading) || !!valueInput) && (
         <>
           <Header
             movies={headerMovie}
@@ -49,7 +50,7 @@ function App() {
             setMovieId={setMovieId}
             setMovies={setMovies}
           />
-          <Filters setFilter = {setFilter} />
+          <Filters />
           <CardList>
             {movies
               .filter(
