@@ -1,18 +1,9 @@
 .filter_container{
     padding: 0.8rem;
-    background-color: #585656;
+    background-color: var(--background-filter);
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
     margin-bottom: 2rem;
-}
-label{
-    font-weight: 700;
-    margin-right: 0.5rem;
-    color: #FFFFFF;
-}
-input {
-   width: 15rem;
-   height: 2rem;
-
 }

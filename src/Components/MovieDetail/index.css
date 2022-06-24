@@ -1,0 +1,58 @@
+.modal-container{
+    background-color: var(--black-background);
+    width: 60%;
+    margin: auto;
+    color: var(--white);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    height: 100vh;
+}
+.btn-detail{
+   
+    background-color: var(--white);
+    position: absolute;
+    border: 0 ;
+    top:0;
+    right :0;
+    z-index: 1;
+
+}
+.video-detail{
+    aspect-ratio: 16/9;
+
+}
+.container-tag{
+    display: flex;
+    word-wrap: wrap;
+    gap: 15px;
+}
+.tag{
+    display: block;
+    padding: 0.5rem;
+    border: 2px solid #b40c0c;
+    background-color: #b40c0c4f;
+    border-radius: 20px;
+    font-weight: 700;
+
+}
+.text-container{
+    width: 90%;
+    margin: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.title-detail{
+     font-size: 32px;
+     margin-bottom: 1rem;
+}
+.text-detail{
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 1rem;
+}
+.genres-title{
+    font-size: 20px;
+    margin-bottom: 1rem;
+
+}

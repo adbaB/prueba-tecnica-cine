@@ -1,3 +1,22 @@
+:root {
+    --white : #FFFFFF;
+    --black-background : #0c0b0b;
+    --black :#000000;
+    --red: #ff0000;
+    --background-filter : #585656;
+    --input-color: #99a3ba;
+    --input-border: #cdd9ed;
+    --input-placeholder: #cbd1dc;
+    --input-border-focus: #275efe;
+    --group-color: var(--input-color);
+    --group-border: var(--input-border);
+    --group-background: #eef4ff;
+    --group-border-focus: var(--input-border-focus);
+    --group-background-focus: #678efe;
+  }
+  *:before, *:after {
+    box-sizing: inherit;
+  }
 *{
     margin:0;
     padding: 0;

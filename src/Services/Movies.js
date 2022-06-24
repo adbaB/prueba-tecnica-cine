@@ -28,12 +28,11 @@ export const findMovies = async(query) =>{
 
 }
 export const getImageMovie =  (image, type = 'original') =>{
-    return `https://image.tmdb.org/t/p/${type+image}`
+    return  image !== null ?`https://image.tmdb.org/t/p/${type+image}`: 'https://image.shutterstock.com/image-vector/image-not-found-grayscale-photo-260nw-1737334631.jpg'
 }
 
 export const getDetailMovie = (id) => {
   const apiUrl = getApi(`movie/${id}`);
-  console.log(apiUrl)
   return fetch(apiUrl)
   .then((response) => response.json())
   .then((data) => data)

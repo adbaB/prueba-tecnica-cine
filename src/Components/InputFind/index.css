@@ -1,0 +1,68 @@
+label {
+  font-weight: 700;
+  margin-right: 0.5rem;
+  color: #ffffff;
+}
+
+.find {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 0 6px 6px 0;
+  appearance: none;
+  color: var(--input-color);
+  border: 1px solid var(--input-border);
+  background: var(--white);
+  transition: border 0.3s ease;
+}
+
+.find::placeholder {
+  color: var(--input-placeholder);
+}
+.find:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+span{
+    border-radius:  6px 0 0 6px;
+}
+
+.inputGroup > span,
+.inputGroup .find {
+  white-space: nowrap;
+  display: block;
+}
+.inputGroup .find {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.inputGroup > span {
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--group-color);
+  background: var(--group-background);
+  border: 1px solid var(--group-border);
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+} 
+.inputGroup:focus-within > span {
+  color: var(--white);
+  background: var(--group-background-focus);
+  border-color: var(--group-border-focus);
+}

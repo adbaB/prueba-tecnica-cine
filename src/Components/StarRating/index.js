@@ -13,7 +13,7 @@ export const StarRating = ({ setFilter }) => {
     { id: 4, max: 10 },
   ];
   const handlerClick = (ratingValue,max ,e) => {
-    console.log(e);
+    
     setRating((prev) => {
       if (prev === ratingValue){
         setHover(null)

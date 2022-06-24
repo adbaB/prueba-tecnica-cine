@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { FaTimes } from "react-icons/fa";
 import {
   getDetailMovie,
   getImageMovie,
   getMovieVideo,
-  getLinkVideo
+  getLinkVideo,
 } from "../../Services/Movies";
-
+import "./index.css";
 export const MovieDetail = ({ setOpenModal, movieId }) => {
   const [detail, setDetail] = useState({});
   const [video, setVideo] = useState({});
@@ -16,32 +17,41 @@ export const MovieDetail = ({ setOpenModal, movieId }) => {
       (data) => {
         setDetail(data[0]);
         setVideo(data[1].results[0].key);
-        setLoading(false)
+        setLoading(false);
       }
     );
-
-    return () => {
-      setDetail({});
-    };
   }, [movieId]);
 
   return (
     <>
       {!loading && (
-        <div>
+        <div className="modal-container">
           <button
+            className="btn-detail"
             onClick={() => {
               setOpenModal(false);
             }}
           >
-            X
+            <FaTimes size={24} />
           </button>
-          <img src={getImageMovie(detail.backdrop_path, "w500")} alt="" />
-          <h3>{detail.original_title}</h3>
-          <p>{detail.overview}</p>
+          <img width="800px" src={getImageMovie(detail.backdrop_path)} alt="" />
+          <div className="text-container">
+            <h3 className="title-detail">{detail.original_title}</h3>
+            <p className="text-detail">{detail.overview}</p>
+            <h4 className="genres-title">Genres:</h4>
+            <div className="container-tag">
+              {detail.genres.map((genre) => {
+                return (
+                  <span className="tag" key={genre.id}>
+                    {genre.name}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
           <iframe
-            width="560"
-            height="315"
+            className="video-detail"
+            width="800px"
             src={getLinkVideo(video)}
             title="YouTube video player"
           ></iframe>
