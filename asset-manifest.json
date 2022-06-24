@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/prueba-tecnica-cine/static/css/main.e259a72b.css",
+    "main.js": "/prueba-tecnica-cine/static/js/main.9352a301.js",
+    "index.html": "/prueba-tecnica-cine/index.html",
+    "main.e259a72b.css.map": "/prueba-tecnica-cine/static/css/main.e259a72b.css.map",
+    "main.9352a301.js.map": "/prueba-tecnica-cine/static/js/main.9352a301.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e259a72b.css",
+    "static/js/main.9352a301.js"
+  ]
+}
