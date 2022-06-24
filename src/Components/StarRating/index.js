@@ -1,8 +1,8 @@
-import React, {useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 import "./index.css";
-export const StarRating = (props) => {
+export const StarRating = ({setFilter}) => {
 
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
@@ -17,17 +17,20 @@ export const StarRating = (props) => {
   const handlerClick = (ratingValue,max ) => {
     
     setRating((prev) => {
+      if (prev === ratingValue){
+   
+      } ;
       return prev === ratingValue ? null : ratingValue;
     });
 
-    if (rating === null){
-      setHover(null)
-      props.setFilter({min:0, max:10 })
-    } ;
-
-    props.setFilter({min: max-2, max:max })
+    setFilter({min: max-2, max:max })
   };
-
+  useEffect(()=>{
+    if(rating === null ){
+      setHover(null)
+      setFilter({min:0, max:10 })
+    }
+  },[rating,setFilter])
   
   return (
     <div>
