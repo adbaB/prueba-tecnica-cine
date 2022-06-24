@@ -4,12 +4,11 @@ const FilterContext = createContext()
 
 
 function FilterProvider(props){
-    const [filter, setFilter] = useState({ min: 0, max: 10 });
+   
     const [valueInput,setValueInput] = useState('');
     return(
         <FilterContext.Provider value={
-           { filter,
-            setFilter,
+           {
             valueInput,
             setValueInput}
         }>

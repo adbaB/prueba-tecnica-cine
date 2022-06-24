@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, {useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { FilterContext } from "../../Context/CineContext";
+
 import "./index.css";
-export const StarRating = () => {
-  const {setFilter} = useContext(FilterContext)
+export const StarRating = (props) => {
+
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
 
@@ -14,18 +14,21 @@ export const StarRating = () => {
     { id: 3, max: 8 },
     { id: 4, max: 10 },
   ];
-  const handlerClick = (ratingValue,max ,e) => {
+  const handlerClick = (ratingValue,max ) => {
     
     setRating((prev) => {
-      if (prev === ratingValue){
-        setHover(null)
-        setFilter({min:0, max:10 })
-      } ;
       return prev === ratingValue ? null : ratingValue;
     });
 
-    setFilter({min: max-2, max:max })
+    if (rating === null){
+      setHover(null)
+      props.setFilter({min:0, max:10 })
+    } ;
+
+    props.setFilter({min: max-2, max:max })
   };
+
+  
   return (
     <div>
       {starArray.map((star, i) => {
@@ -36,8 +39,8 @@ export const StarRating = () => {
               type="radio"
               name="rating"
               value={ratingValue}
-              onClick={(e) => {
-                handlerClick(ratingValue,star.max,e);
+              onClick={() => {
+                handlerClick(ratingValue,star.max);
               }}
             />
             <FaStar
