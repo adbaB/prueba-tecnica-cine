@@ -1,14 +1,13 @@
 import React from 'react'
-import { InputFind } from '../InputFind'
 
 import { StarRating } from '../StarRating'
 import './index.css'
-export const Filters = ({setMovies, setFilter}) => {
+export const Filters = ({setMovies}) => {
    
   return (
     <div className='filter_container'>
-      <InputFind setMovies={setMovies}/>
-      <StarRating setFilter ={setFilter}/>
+      <label className='label-rating' htmlFor="rating">Clasificación:</label>
+      <StarRating />
     </div>
   )
 }

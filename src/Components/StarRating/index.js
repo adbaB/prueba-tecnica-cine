@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { FilterContext } from "../../Context/CineContext";
 import "./index.css";
-export const StarRating = ({ setFilter }) => {
+export const StarRating = () => {
+  const {setFilter} = useContext(FilterContext)
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
 

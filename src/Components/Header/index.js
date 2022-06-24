@@ -1,7 +1,8 @@
 import React from "react";
 import { getImageMovie } from "../../Services/Movies";
+import { InputFind } from "../InputFind";
 import "./index.css";
-export const Header = ({ movies, setOpenModal, setMovieId }) => {
+export const Header = ({ movies, setOpenModal, setMovieId,setMovies }) => {
   const { original_title, overview, poster_path, id } = movies.current;
   const handlerClick = () => {
     setOpenModal(true);
@@ -11,6 +12,7 @@ export const Header = ({ movies, setOpenModal, setMovieId }) => {
     <div className="container_header">
       <nav className="navbar">
         <h1>CINE UNIVERSAL</h1>
+        <InputFind setMovies={setMovies}/>
       </nav>
       <header className="header">
         <img

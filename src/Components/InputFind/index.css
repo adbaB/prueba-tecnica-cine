@@ -11,7 +11,6 @@ label {
   line-height: 25px;
   font-size: 14px;
   font-weight: 500;
-  font-family: inherit;
   border-radius: 0 6px 6px 0;
   appearance: none;
   color: var(--input-color);

@@ -8,6 +8,9 @@ h1{
 }
 
 .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: var(--black-background);
     padding: 10px;
 }
